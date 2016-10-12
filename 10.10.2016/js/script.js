@@ -7,7 +7,7 @@ function randomDiscount(min, max) {
 }
 
 var purchaseAmount = +prompt("Введите сумму покупки");
-while(!purchaseAmount){
+while(!purchaseAmount || purchaseAmount < 0){
     alert("Вы ввели неверное значение, сумма покупки должна быть числом!");
     purchaseAmount = +prompt("Введите сумму покупки");
 }
@@ -16,12 +16,13 @@ if(purchaseAmount >= AMOUNT_DISCOUNT){
     alert("Ваша скидка составляет " +discount+ "%" );
     purchaseAmount -= purchaseAmount * discount/100;
 }
-if(!confirm("B случае оплаты наличными может быть проверена возможность бесплатной доставки. Желаете оплатить наличными?")){
+var payCash = confirm("B случае оплаты наличными может быть проверена возможность бесплатной доставки. Желаете оплатить наличными?")
+if(!payCash){
     console.log("Итоговая сумма к оплате за товар: " + purchaseAmount+ " грн.");
 }
 else {
     var distance = +prompt("Введите расстояние доставки");
-    while (!distance) {
+    while (!distance || distance < 0) {
         alert("Вы ввели неверное значение, расстояние должно быть числом!");
         distance = +prompt("Введите расстояние доставки");
     }
