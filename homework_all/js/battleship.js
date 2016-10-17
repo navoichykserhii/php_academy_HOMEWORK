@@ -7,17 +7,16 @@ var isSunk = false,
     shipPosition = new Array(7);    /* если shipPosition[i] = 1, то корабль на этой позиции */
 
 function setPosition(){                                         /* расставляем корабли */
-    for (var i = 0; i < 3; i++) {
         var position =  Math.floor(Math.random()*7)
-        for (var j = 0; j < tempNumbPosition.length; j++) {
-            if (tempNumbPosition[j] == position){               /* проверяем нет ли на этой позиции корабля */
-                position =  Math.floor(Math.random()*7)
-                j = -1;
-            }       
-        }
-       tempNumbPosition[i] = position;
-       shipPosition[position] = 1; 
-    }
+		shipPosition[position] = 1;
+		if(position > 4){
+			shipPosition[position - 1] = 1;
+			shipPosition[position - 2] = 1;
+		}
+		else{
+			shipPosition[position + 1] = 1;
+			shipPosition[position + 2] = 1;
+		}
     for (var i = 0; i < shipPosition.length; i++) {
         console.log(shipPosition[i]);
     }
