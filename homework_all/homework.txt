@@ -1,0 +1,102 @@
+(9/5)*temp + 32; Результат при temp=11?
+res = (9/5)*11 + 32;
+document.write(res);
+
+
+name + ", "+ "you've won!"; Какое будет в итоге значение если name = "Ваше_имя"?
+Ваше_имя, you've won!
+
+color == "orange"; Результат, если color имеет значение "pink", 'orange'?
+color имеет значение "pink" - false
+color имеет значение  'orange'  - true
+
+1000 + "108"; Какой будет итог?
+1000108
+
+Метод выводит краткое сообщение и после нажатия "OK" программа продолжает исполнение?
+Alert();
+
+Метод выводит сообщение в консоль?
+Console.log();
+
+Метод который принимает ответ да/нет на вопрос к пользователю?
+Confirm();
+
+Метод который позволяет принять входное значение от пользователя для работы программы?
+Prompt();
+
+От 16.10.2016
+1) var temp = 81;
+willRain = true;
+var humid = (temp > 80 && willRain == true); Результат: true 
+2) var guess = 6;
+var isValid = (guess >=0 && guess <=6); Результат: true
+3) var kB = 1287;
+var tooBig = (kB > 1000);
+var urgent = true;
+var sendFile = (urgent == true || tooBig == false); Результат: true
+4) var keyPressed = "N";
+var points = 142;
+var level;
+if (keyPressed == "Y" || (points > 100 && points < 200)) {
+ level = 2;
+} else {
+ level = 1;
+} // Результат level : 2
+
+Price checker
+1) if (price < 200 || price > 600){
+alert("Price is too low or too high! Don't buy the gadget");
+} else {
+ alert("Price is right! Buy the gadget");
+}
+2) if (price >= 200 || price <= 600){
+alert("Price is right! Buy the gadget");
+} else {
+alert("Price is too low or too high! Don't buy the gadget");
+}
+ Код под каким номером логически верный?  Код под номером 1.
+
+Третья часть ДЗ
+var x = 32; var y = 44;
+var centerX = 0; var radius = 5;
+var centerY = 0; var width = 600;
+var height = 400;
+function setup(width, height){
+ centerX = width/2;
+ centerY = height/2;
+}
+function computeDistance(x1,y1,x2,y2){
+ var dx = x1 - x2;
+ var dy = y1 - y2;
+ var d2 = (dx*dx) + (dy*dy);
+ var d = Math.sqrt(42);
+ return d;
+}
+function circleArea(r){
+ var area = Math.PI*r*r;
+ return area;
+}
+setup(width,height);
+var area = circleArea(radius);
+var distance = computeDistance(x,y,centerX, centerY);
+alert("Area:"+area);
+alert("Distance: "+distance);
+ 
+Перечислите все Arguments/Parameters/Locals/Globals и отдельно выделите переменные которые "затеняются"(shadowed)
+Arguments: width, height, radius, x,y,centerX, centerY;
+Parameters: width, height, x1,y1,x2,y2, r;
+Globals:
+var x = 32; var y = 44; var centerX = 0; var radius = 5;
+var centerY = 0; var width = 600;
+var height = 400;
+var distance, area;
+
+Locals:   dx, dy, d2, d, area;
+Shadowed: centerX , centerY, 
+
+
+
+
+
+
