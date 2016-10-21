@@ -21,20 +21,20 @@ var contactList = {
 			birthday: '05.08.1988'
 		},
 		showContact: function(name){
-	    	if(typeof(contactList[name]) === 'undefined'){	
+	    	if(!this[name]){	
 	    		console.log("Такого контакта нет");
 	    	}
 	    	else{
         	console.log("Контакт: " + name);
-				for(key in contactList[name]){
-					console.log(key + ': ' + contactList[name][key]);
+				for(key in this[name]){
+					console.log(key + ': ' + this[name][key]);
 				}
 			}
     	},
   		countContacts: function(){
   			var count = 0;
-  			for(key in contactList){
-  				if(typeof(contactList[key]) != 'function'){
+  			for(key in this){
+  				if(typeof(this[key]) != 'function'){
   					++count;	
   				}
   			}
@@ -43,9 +43,9 @@ var contactList = {
   		searchContact: function(){
   			var searchParam = prompt("Введите параметр поиска(имя, фамилия, номер телефона и т.д.)");
   			var isContact = false;
-  			for(keySearch in contactList){
-  				for( param in contactList[keySearch]){
-  					if(contactList[keySearch][param] == searchParam){
+  			for(keySearch in this){
+  				for( param in this[keySearch]){
+  					if(this[keySearch][param] == searchParam){
   						this.showContact(keySearch);
   						isContact = true;
   						break;
@@ -57,3 +57,4 @@ var contactList = {
   			}
   		}
 	}
+contactList.searchContact();
