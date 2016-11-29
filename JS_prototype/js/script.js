@@ -2,73 +2,96 @@ function Animals(weight, height) {
     this.weight = weight;
     this.height = height;
 };
-var Animal = new Animals('','');
+Animals.prototype.eat = true;
+Animals.prototype.run = true;
+Animals.prototype.sleep = true;
+
+var animal = new Animals('','');
 
 function Vegans(name) {
     this.name = name;
 };
-Vegans.prototype = Animal;
-var Vegan = new Vegans("Vegans");
+Vegans.prototype = new Animals();
+var vegan = new Vegans("Vegans");
+vegan.eat = function (food) {
+    var veganFood = ['Grass', 'Vegetables'];
+    if(veganFood.indexOf(food) != -1){
+        showResult(true, 'Vegans');
+    }
+    else{
+        showResult(false, 'Vegans')
+    }
+}
 
 function Predators(name) {
     this.name = name;
 };
-Predators.prototype = Animal;
-var Predator = new Predators("Predators");
+Predators.prototype = new Animals();
+var predator = new Predators("Predators");
+predator.eat = function (food) {
+    if (food instanceof Vegans){
+        showResult(true, 'Predators');
+    }
+    else{
+        showResult(false, 'Predators')
+    }
+};
 
 function Cat() {};
-Cat.prototype = Predator;
+Cat.prototype = new Predators();
 function Dog() {};
-Dog.prototype = Predator;
+Dog.prototype = new Predators();
 function Cow() {};
-Cow.prototype = Vegan;
+Cow.prototype = new Vegans();
 function Mouse() {};
-Mouse.prototype = Vegan;
+Mouse.prototype = new Vegans();
 
-Animals.prototype.eat = true;
-Animals.prototype.run = true;
-Animals.prototype.sleep = true;
-Vegan.eat = ['Grass', 'Vegetables'];
-Predator.eat = ['Vegans'];
+var cat = new Cat();
+var dog = new Dog();
+var cow = new Cow();
+var mouse = new Mouse();
 
-var Cat = new Cat();
-var Dog = new Dog();
-var Cow = new Cow();
-var Mouse = new Mouse();
+
+function showResult(result, thisKind) {
+    if(result){
+        $('textarea').text("That's right: " + thisKind + " eat that");
+    }
+    else{
+        $('textarea').text("Is not true: " + thisKind + " don't eat that");
+    }
+}
+
 $('button').on('click', function () {
     var thisAnimal = $('#animals').find('option:checked').text();
     var thisFood = $('#food').find('option:checked').text();
-    var animalEat,
-        thisKind;
-    if (thisFood == "Cow" || thisFood == "Mouse"){
-        thisFood = "Vegans";
-    }
-    switch (thisAnimal){
+
+    switch (thisFood){
         case 'Cat':
-            animalEat = Cat.eat;
-            thisKind = Cat.name;
+            thisFood = cat;
             break;
         case 'Dog':
-            animalEat = Dog.eat;
-            thisKind = Dog.name;
+            thisFood = dog;
             break;
         case 'Cow':
-            animalEat = Cow.eat;
-            thisKind = Cow.name;
+            thisFood = cow;
             break;
         case 'Mouse':
-            animalEat = Mouse.eat;
-            thisKind = Mouse.name;
+            thisFood = mouse;
+            break;
+    };
+    switch (thisAnimal){
+        case 'Cat':
+            predator.eat(thisFood);
+            break;
+        case 'Dog':
+            predator.eat(thisFood);
+            break;
+        case 'Cow':
+            vegan.eat(thisFood);
+            break;
+        case 'Mouse':
+            vegan.eat(thisFood);
             break;
 
     };
-    for( i = 0; i < animalEat.length; ++i){
-        if(animalEat[i] == thisFood){
-            $('textarea').text("That's right: " + thisKind + " eat that");
-            break;
-        }
-        else{
-            $('textarea').text("Is not true: " + thisKind + " don't eat that");
-        }
-    }
 });
