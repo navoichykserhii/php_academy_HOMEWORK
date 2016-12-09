@@ -1,0 +1,66 @@
+@import url(reset.css);
+p{margin: 5px 0;}
+#wrapper{width: 80%; margin: 20px auto;}
+.filters p{ color: #000;font-weight: bold}
+#products{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 10px;
+}
+    .product{
+        position: relative;
+        width: 30%;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        height: auto;
+        margin-bottom: 15px;
+        text-align: center;
+        color: #979797;
+        padding: 10px;
+        margin-right: 3%;
+        box-sizing: border-box;
+    }
+    h1{ font-size: 20px;  color: #636363}
+    .product .about{text-align: right; margin-top: 10px;}
+    .about button{
+        color: #636363;
+        padding: 5px;
+        background: #eeeeee;
+        border: none;
+        display: inline-block;
+        border-radius: 3px;
+        margin: 5px 15px;
+        cursor: pointer;
+    }
+    .about .description{display: none; text-align: left;}
+    .buy{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        padding: 0 10px;
+        color: #4a60ff;
+    }
+    .price{margin-top: 10px; font-size: 20px;}
+    .buttons button{
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+    }
+    .buttons .like{background: url("../images/buttons.png") no-repeat -48px 7px; }
+    .buttons .shop{background: url("../images/buttons.png") no-repeat -102px 6px; }
+    .like_press{
+        position: absolute;
+        top: 40%;
+        left: 11%;
+        color: #ff2825;
+        font-size: 20px;
+    }
+    .no-match{
+        width: 100%;
+        color: #ff2825;
+        font-style: italic;
+        text-align: center;
+    }
