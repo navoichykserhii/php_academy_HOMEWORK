@@ -1,0 +1,39 @@
+@import "reset"
+$main-bg: #f9ffd4
+=center
+  margin: 0 auto
+  display: block
+
+
+body
+  background-color: $main-bg
+  padding: 20px
+.wrapper
+  +center
+  width: 80%
+  padding: 30px
+  background-color: #f8ffe8
+  h1
+    font-size: 30px
+    color: #ff3f7d
+    text-align: center
+    margin-bottom: 30px
+  #ip-address
+    +center
+    margin-bottom: 10px
+    padding: 5px
+    border-radius: 5px
+  button
+    +center
+.information
+  width: 90%
+  margin: 20px auto 0 auto
+  td
+    border: 1px solid black
+    padding: 5px
+    text-transform: capitalize
+    text-align: center
+  th
+    @extend td
+    background-color: gainsboro
+

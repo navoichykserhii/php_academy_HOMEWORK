@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>page name</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Get location information about an IP address</h1>
+			<form action="#" method="get" id="set-ip-form">
+				<input type="text" id="ip-address" placeholder="Enter IP address">
+				<button type="submit">Get location</button>
+			</form>
+			<table class="information"></table>
+			<div id = "map"></div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<script src="js/script.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCswOswjvGwRn4yvZNixl8gtxvobHl_PcA&callback=initMap"
+				async defer></script>
+	</body>
+</html>
